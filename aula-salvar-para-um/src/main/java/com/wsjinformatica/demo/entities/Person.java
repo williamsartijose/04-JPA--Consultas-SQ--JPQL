@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "tb_person")
 public class Person {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -13,17 +14,16 @@ public class Person {
 
     @ManyToOne
     @JoinColumn(name = "department_id")
-    private Department departament;
+    private Department department;
 
     public Person() {
-
     }
 
-    public Person(Long id, String name, Double salary, Department departament) {
+    public Person(Long id, String name, Double salary, Department department) {
         this.id = id;
         this.name = name;
         this.salary = salary;
-        this.departament = departament;
+        this.department = department;
     }
 
     public Long getId() {
@@ -50,11 +50,11 @@ public class Person {
         this.salary = salary;
     }
 
-    public Department getDepartament() {
-        return departament;
+    public Department getDepartment() {
+        return department;
     }
 
-    public void setDepartament(Department departament) {
-        this.departament = departament;
+    public void setDepartment(Department department) {
+        this.department = department;
     }
 }
