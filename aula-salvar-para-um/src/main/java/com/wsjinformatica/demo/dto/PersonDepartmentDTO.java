@@ -1,6 +1,7 @@
 package com.wsjinformatica.demo.dto;
 
 import com.wsjinformatica.demo.entities.Department;
+import com.wsjinformatica.demo.entities.Person;
 
 public class PersonDepartmentDTO {
 
@@ -15,6 +16,12 @@ public class PersonDepartmentDTO {
         this.name = name;
         this.salary = salary;
         this.departament = departament;
+    }
+    public PersonDepartmentDTO(Person entity) {
+       id = entity.getId();
+       name = entity.getName();
+       salary = entity.getSalary();
+       departament = new DepartmentDTO(entity.getDepartment());
     }
 
     public Long getId() {

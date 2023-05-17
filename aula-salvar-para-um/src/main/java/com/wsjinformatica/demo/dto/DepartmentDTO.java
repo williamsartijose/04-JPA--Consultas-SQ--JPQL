@@ -1,5 +1,7 @@
 package com.wsjinformatica.demo.dto;
 
+import com.wsjinformatica.demo.entities.Department;
+
 public class DepartmentDTO {
 
     private Long id;
@@ -10,6 +12,10 @@ public class DepartmentDTO {
         this.name = name;
     }
 
+    public DepartmentDTO(Department entity) {
+        id = entity.getId();
+        name = entity.getName();
+    }
     public Long getId() {
         return id;
     }
