@@ -1,5 +1,6 @@
 package com.wsjinformatica.demo.services;
 
+import com.wsjinformatica.demo.dto.PersonDTO;
 import com.wsjinformatica.demo.dto.PersonDepartmentDTO;
 import com.wsjinformatica.demo.entities.Department;
 import com.wsjinformatica.demo.entities.Person;
@@ -32,4 +33,22 @@ public class PersonService {
         return new PersonDepartmentDTO(entity);
 
     }
+
+    public PersonDTO insert(PersonDTO dto){
+
+        Person entity = new Person();
+        entity.setName(dto.getName());
+        entity.setSalary(dto.getSalary());
+
+        // Department dept =  departmentRepository.getReferenceById(dto.getDepartmentId());
+        Department dept = new Department();
+        dept.setId(dto.getDepartmentId());
+
+        entity.setDepartment(dept);
+        entity = repository.save(entity);
+
+        return new PersonDTO(entity);
+
+    }
+
 }
